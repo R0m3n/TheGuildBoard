@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ows20\\OneDrive\\Desktop\\Algorithms\\TheGuildBoard\\TheGuildBoard\\TheGuildBoard.csproj",
+      "projectUniqueName": "C:\\Users\\ows20\\OneDrive\\Documents\\GitHub\\TheGuildBoard\\TheGuildBoard\\TheGuildBoard.csproj",
       "projectName": "TheGuildBoard",
-      "projectPath": "C:\\Users\\ows20\\OneDrive\\Desktop\\Algorithms\\TheGuildBoard\\TheGuildBoard\\TheGuildBoard.csproj",
+      "projectPath": "C:\\Users\\ows20\\OneDrive\\Documents\\GitHub\\TheGuildBoard\\TheGuildBoard\\TheGuildBoard.csproj",
       "packagesPath": "C:\\Users\\ows20\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ows20\\OneDrive\\Desktop\\Algorithms\\TheGuildBoard\\TheGuildBoard\\obj\\",
+      "outputPath": "C:\\Users\\ows20\\OneDrive\\Documents\\GitHub\\TheGuildBoard\\TheGuildBoard\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
