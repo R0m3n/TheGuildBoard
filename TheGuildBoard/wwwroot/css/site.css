@@ -35,6 +35,25 @@ html {
   }
 }
 
+.board {
+    width: 1100px;
+    height: 750px;
+    margin: auto;
+    align-content: flex-start;
+    justify-content:space-evenly;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post {
+    background-color: white;
+    height: 200px;
+    min-width: 23%;
+    margin: 10px;
+    margin-top: 20px;
+}
+
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
