@@ -8088,6 +8088,7 @@
       ]
     }
   },
+  "libraries": {},
   "projectFileDependencyGroups": {
     "net5.0": [
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 5.0.5",
