@@ -7,9 +7,9 @@ using TheGuildBoard.Models;
 
 namespace TheGuildBoard.Data
 {
-    class PostContext : DbContext
+    public class PostContext : DbContext
     {
-        public PostContext(DbContextOptions options) : base(options)
+        public PostContext(DbContextOptions<PostContext> options) : base(options)
         {
 
         }

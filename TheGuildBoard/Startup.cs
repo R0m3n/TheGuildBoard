@@ -26,6 +26,8 @@ namespace TheGuildBoard
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
+            services.AddTransient<IDataAccessLayer, GuildBoardDAL>();
             services.AddDbContext<BoardContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("CapstoneDB"));
@@ -68,6 +70,19 @@ namespace TheGuildBoard
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "board",
+                    pattern: "/Board/{id:int?}",
+                    defaults: new { controller = "Board", action = "Index" }
+                    );
+
+                endpoints.MapControllerRoute(
+                    name: "viewpost",
+                    pattern: "/Board/ViewPost/{id:int?}",
+                    defaults: new { controller = "Board", action = "ViewPost" }
+                    );
+
 
                 endpoints.MapRazorPages();
             });

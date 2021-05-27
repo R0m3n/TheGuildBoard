@@ -26,8 +26,8 @@ namespace TheGuildBoard.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("OwnerId")
-                        .HasColumnType("int");
+                    b.Property<string>("OwnerEmail")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");

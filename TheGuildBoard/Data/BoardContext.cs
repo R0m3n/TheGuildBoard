@@ -9,7 +9,7 @@ namespace TheGuildBoard.Data
 {
     public class BoardContext : DbContext
     {
-        public BoardContext(DbContextOptions options) : base(options)
+        public BoardContext(DbContextOptions<BoardContext> options) : base(options)
         {
             
         }
