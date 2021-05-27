@@ -1,0 +1,20 @@
+﻿@model PassThrough
+
+    <a class="post" href="ViewPost/@Model.Post.Id">
+        <div>
+            <form></form>
+            <h4 class="posttitle"><b>@Model.Post.Title</b></h4>
+            <p class="posttext">@Model.Post.Contents</p>
+            @if (Model.IsAdmin)
+            {
+            <div class="delete-container">
+                <form asp-action="DeletePost">
+                    <input type="hidden" value="@Model.Post.Id" name="id" />
+                    <input type="hidden" value="@Model.Board.Id" name="boardid" />
+                    <input type="submit" class="delete-button"/>
+                </form>
+            </div>
+            }
+        </div>
+    </a>
+

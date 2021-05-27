@@ -1,16 +1,35 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model AddPostModel
+
 @{
+    List<Post> posts = Model.Posts;
+    int BoardId = (int)Model.Board.Id;
 }
 
 <div class="board">
 
-    <div class="post">This is a post</div>
-    <div class="post">This is also a post</div>
-    <div class="post">This is a post</div>
-    <div class="post">This is also a post</div>
-    <div class="post">This is a post</div>
-    <div class="post">This is also a post</div>
+    @*<div class="post">This is a post</div>
+        <div class="post">This is also a post</div>
+        <div class="post">This is a post</div>
+        <div class="post">This is also a post</div>
+        <div class="post">This is a post</div>
+        <div class="post">This is also a post</div>*@
+
+    @if (posts.Count > 0)
+    {
+        foreach (Post post in posts)
+        {
+                PassThrough pass = new PassThrough(post, Model.Board, Model.isAdmin);
+                Html.RenderPartial("~/Views/Board/_PostPartialView.cshtml", pass);
+            
+            //<partial name="_PostPartialView.cshtml" for="@post" />
+        }
+    }
 
 </div>
+
+<form>
+    <input type="hidden" value="@BoardId" name="BoardId" />
+    <div class="button-container">
+        <button type="submit" class="board-button" asp-action="AddPost"></button>
+    </div>
+</form>

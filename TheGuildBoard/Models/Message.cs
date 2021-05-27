@@ -7,7 +7,8 @@ namespace TheGuildBoard.Models
 {
     public class Message
     {
-        public int SenderId { get; set; }
+        public int? Id { get; set; }
+        public int? SenderId { get; set; }
         public int ReceiverProperty { get; set; }
         public string Contents { get; set; }
     }

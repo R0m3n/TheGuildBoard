@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TheGuildBoard.Data;
 
 namespace TheGuildBoard
 {
@@ -24,6 +26,22 @@ namespace TheGuildBoard
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
+            services.AddTransient<IDataAccessLayer, GuildBoardDAL>();
+            services.AddDbContext<BoardContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("CapstoneDB"));
+            });
+
+            services.AddDbContext<PostContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("CapstoneDB"));
+            });
+
+            services.AddDbContext<MessageContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("CapstoneDB"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +62,7 @@ namespace TheGuildBoard
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -51,6 +70,21 @@ namespace TheGuildBoard
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "board",
+                    pattern: "/Board/{id:int?}",
+                    defaults: new { controller = "Board", action = "Index" }
+                    );
+
+                endpoints.MapControllerRoute(
+                    name: "viewpost",
+                    pattern: "/Board/ViewPost/{id:int?}",
+                    defaults: new { controller = "Board", action = "ViewPost" }
+                    );
+
+
+                endpoints.MapRazorPages();
             });
         }
     }
