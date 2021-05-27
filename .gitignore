@@ -73,3 +73,12 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+
+
+
+TheGuildBoard/obj/Debug/net5.0/TheGuildBoard.assets.cache
+TheGuildBoard/obj/Debug/net5.0/TheGuildBoard.csprojAssemblyReference.cache
+TheGuildBoard/obj/TheGuildBoard.csproj.nuget.dgspec.json
+TheGuildBoard/obj/TheGuildBoard.csproj.nuget.g.props
+TheGuildBoard/obj/project.assets.json
+TheGuildBoard/obj/project.nuget.cache
