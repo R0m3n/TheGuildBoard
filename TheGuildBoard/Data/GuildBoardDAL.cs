@@ -58,5 +58,11 @@ namespace TheGuildBoard.Data
         {
             return _boards.Boards.Where(b => b.Id == id).FirstOrDefault();
         }
+
+        public List<Board> GetBoardsByOwnerEmail(string owneremail)
+        {
+            List<Board> boards = _boards.Boards.Where(b => b.OwnerEmail == owneremail).ToList();
+            return boards; 
+        }
     }
 }

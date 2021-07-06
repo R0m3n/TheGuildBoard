@@ -3,24 +3,31 @@
 @{
     List<Post> posts = Model.Posts;
     int BoardId = (int)Model.Board.Id;
+    ViewData["Title"] = Model.Board.Title;
 }
 
 <div class="board">
 
     @*<div class="post">This is a post</div>
-        <div class="post">This is also a post</div>
-        <div class="post">This is a post</div>
-        <div class="post">This is also a post</div>
-        <div class="post">This is a post</div>
-        <div class="post">This is also a post</div>*@
+    <div class="post">This is also a post</div>
+    <div class="post">This is a post</div>
+    <div class="post">This is also a post</div>
+    <div class="post">This is a post</div>
+    <div class="post">This is also a post</div>
+    <div class="post">This is a post</div>
+    <div class="post">This is also a post</div>
+    <div class="post">This is a post</div>
+    <div class="post">This is also a post</div>
+    <div class="post">This is a post</div>
+    <div class="post">This is also a post</div>*@
 
     @if (posts.Count > 0)
     {
         foreach (Post post in posts)
         {
-                PassThrough pass = new PassThrough(post, Model.Board, Model.isAdmin);
-                Html.RenderPartial("~/Views/Board/_PostPartialView.cshtml", pass);
-            
+            PassThrough pass = new PassThrough(post, Model.Board, Model.isAdmin);
+            Html.RenderPartial("~/Views/Board/_PostPartialView.cshtml", pass);
+
             //<partial name="_PostPartialView.cshtml" for="@post" />
         }
     }

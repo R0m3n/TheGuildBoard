@@ -1,8 +1,28 @@
-﻿@{
+﻿@model List<Board>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center parchment rounded-edges">
+    <h1 class="display-4">Welcome to The Guild Board!</h1>
+
+    @{ if (!User.Identity.IsAuthenticated)
+        {
+            <div><h2>Log in to see your boards.</h2></div>
+        }
+
+        else if (Model == null)
+        {
+            <h2>You are not a member of any boards.</h2>
+        }
+
+        else
+        {
+            <h3>Your Boards:</h3>
+            foreach(Board board in Model)
+                {
+                    <a href="Board/@board.Id">@board.Title</a>
+                }
+        }
+    }
 </div>
