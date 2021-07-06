@@ -3,8 +3,8 @@
 *@
 @model int
 
-<div class="blackbackground">
-    <form asp-action="SubmitPost" method="post">
+<div class="parchment">
+    <form asp-action="SubmitPost" method="post"style="margin: 5px;">
         <input type="hidden" value="@Model" name="boardid" />
         <div class="form-group">
             <label for="title">Title</label>
@@ -14,6 +14,6 @@
             <label for="contents">Contents</label>
             <textarea class="form-control" style="height: 200px" name="contents" id="contents"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" style="background-color: black;">Submit</button>
     </form>
 </div>

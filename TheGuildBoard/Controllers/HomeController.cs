@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using TheGuildBoard.Models;
 
@@ -13,14 +14,24 @@ namespace TheGuildBoard.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        IDataAccessLayer dataAccessLayer;
+
+        public HomeController(ILogger<HomeController> logger, IDataAccessLayer dal)
         {
             _logger = logger;
+            dataAccessLayer = dal;
         }
 
         public IActionResult Index()
         {
-            return View();
+            if(User.Identity.IsAuthenticated)
+            {
+                string currentEmail = User.FindFirst(ClaimTypes.Email).ToString();
+                List<Board> boards = dataAccessLayer.GetBoardsByOwnerEmail(currentEmail);
+
+                return View(boards);
+            }
+            return View(null);
         }
 
         public IActionResult Privacy()

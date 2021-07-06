@@ -11,6 +11,7 @@ html {
     background-image: url('/images/Stonewall.jpg');
     background-size: contain;
     overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
 }
 
 
@@ -70,9 +71,20 @@ body {
     height: 140px;
 }
 
+.parchment {
+    background-image: url(/images/parchment.jpg);
+    background-repeat: repeat;
+    color: black;
+}
+
+.rounded-edges {
+    border-radius: 5px;
+}
+
 .blackbackground {
-    background-color: black;
-    color: white;
+    background-image: url(/images/parchment.jpg);
+    background-repeat: repeat;
+    color: black;
     height: 750px;
 }
 

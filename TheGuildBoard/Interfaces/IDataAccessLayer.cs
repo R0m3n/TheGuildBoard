@@ -12,7 +12,7 @@ namespace TheGuildBoard
 
         void AddPost(Post post);
         void AddBoard(Board board);
-
+        List<Board> GetBoardsByOwnerEmail(string owneremail);
         void DeletePost(int id);
 
         Post GetPostById(int id);
